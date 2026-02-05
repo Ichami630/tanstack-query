@@ -12,6 +12,8 @@ export default function Todo() {
     }
   return (
     <div>
+        <p>Query fetch function status: {todoIdsQuery.fetchStatus}</p>
+        <p>Query data status: {todoIdsQuery.status}</p>
         {todoIdsQuery.data?.map((id) => (
             <p key={id}>{id}</p>
         ))}
