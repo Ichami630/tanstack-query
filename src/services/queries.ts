@@ -26,3 +26,13 @@ export function useProjects(page: number) {
         queryFn: () => getProjects(page),
     })
 }
+
+//pagination with placeholderData
+export function useNewProjects(page: number) {
+    return useQuery({
+        queryKey: ['newProject', page],
+        queryFn: () => getProjects(page),
+        placeholderData: (previousData) => previousData, // or simply keepPreviousData
+        // keepPreviousData is deprecated in v5 in favor of placeholderData
+    })
+}

@@ -14,5 +14,5 @@ export const getTodos = async (id: number) => {
 }
 
 export const getProjects = async (page = 1) => {
-    return (await axiosInstance.get<Project[]>(`projects?_page=${page}&limit=3`)).data;
+    return (await axiosInstance.get<Project[]>(`projects?_page=${page}&_limit=3`)).data;
 }
