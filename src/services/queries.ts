@@ -1,5 +1,5 @@
 import { useQueries, useQuery } from "@tanstack/react-query";
-import { getTodos, getTodosIds } from "./api";
+import { getProjects, getTodos, getTodosIds } from "./api";
 
 export function useTodosIds () {
     return useQuery({
@@ -16,5 +16,13 @@ export function useTodos(ids: (number | undefined)[] | undefined) {
                 queryFn: () => getTodos(id!)
             }
         })
+    })
+}
+
+//pagination queries
+export function useProjects(page: number) {
+    return useQuery({
+        queryKey: ["project", {page}],
+        queryFn: () => getProjects(page),
     })
 }
