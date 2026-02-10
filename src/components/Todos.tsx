@@ -25,8 +25,14 @@ export default function Todos() {
 
     //delete todo
     const deleteTodoMutation = useDeleteTodo();
-    const handleDeleteTodo = (id: number) => {
-        deleteTodoMutation.mutate(id)
+    const handleDeleteTodo = async (id: number) => {
+        try {
+            await deleteTodoMutation.mutateAsync(id)
+        } catch (error) {
+            console.error(error)
+        }finally{
+            alert("delete successfully")
+        }
     }
     
     const todosQueries = useTodos(todoIdsQuery.data)
