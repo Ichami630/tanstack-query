@@ -25,3 +25,7 @@ export const getProducts = async ({ pageParam }: {pageParam: number}) => {
 export const getProduct = async (id: number) => {
     return (await axiosInstance.get<Products>(`products/${id}`)).data
 }
+
+export const createTodo = async (data: Todo) => {
+    await axiosInstance.post("todos", data);
+}
